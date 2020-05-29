@@ -5,6 +5,7 @@ const clearBtn = document.querySelector('.clear-tasks');
 const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
+
 // Load all event listeners
 loadEventListeners();
 
@@ -45,7 +46,7 @@ function addTask(e){
     // Append li to ul
     
     taskList.appendChild(li);
-    console.log(e);
+    //console.log(e);
 
     //Clear input
     taskInput.value = '';
@@ -57,6 +58,10 @@ function addTask(e){
 // Remove task
 function removeTask(e){
 
-    
+    if(e.target.parentElement.classList.contains('delete-item')){
+        e.target.parentElement.parentElement.remove();
+        
+    };
+
 
 }
