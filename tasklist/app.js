@@ -16,6 +16,8 @@ function loadEventListeners(){
     //Remove task event
     taskList.addEventListener('click',removeTask);
 
+    //Clear Task
+    clearBtn.addEventListener('click',clearTask);
 
 }
 
@@ -57,11 +59,32 @@ function addTask(e){
 
 // Remove task
 function removeTask(e){
-
+    console.log('john');
     if(e.target.parentElement.classList.contains('delete-item')){
+        if(confirm('Are you sure, you want to remove this task?')){
         e.target.parentElement.parentElement.remove();
+        }
         
     };
 
+
+}
+
+function clearTask(e){
+
+    //First way
+    //e.target.previousSibling.previousSibling.remove();
+
+    //Second way
+    //taskList.innerHTML = '';
+   
+    //Third way
+    if(confirm("Are you sure you want to remove all task")){
+    while(taskList.firstChild){
+        
+        taskList.removeChild(taskList.firstChild);
+        
+        }
+    }
 
 }
